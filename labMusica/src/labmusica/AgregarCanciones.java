@@ -4,6 +4,7 @@
  */
 package labmusica;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -239,7 +240,16 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
     }//GEN-LAST:event_guardarPrecioActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
+        JTunes cancion = new JTunes();
+        
+       
+       String codigo = guardarCodigo.getText();
+       String nombre = guardarNombre.getText();
+       String precio = guardarPrecio.getText();
+       ImageIcon imagenSeleccionada = ImagenesUsuario.chooseImage(this);
+       
+       cancion.addSong(codigo, nombre, precio, imagenSeleccionada);
+        
     }//GEN-LAST:event_guardarActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed

@@ -7,15 +7,15 @@ package labmusica;
 import javax.swing.ImageIcon;
 
 public class Song {
-private int codigo;
+private String codigo;
     private String nombre;
-    private double precio;
+    private String precio;
     private int sumaEstrellas;
     private int totalReviews;
     private ImageIcon imagenDisco; 
 
     
-    public Song(int codigo, String nombre, double precio, ImageIcon imagenDisco) {
+    public Song(String codigo, String nombre, String precio, ImageIcon imagenDisco) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
@@ -25,7 +25,7 @@ private int codigo;
     }
 
     
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -33,7 +33,7 @@ private int codigo;
         return nombre;
     }
 
-    public double getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
