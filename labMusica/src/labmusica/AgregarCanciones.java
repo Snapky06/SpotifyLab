@@ -19,16 +19,15 @@ public ImageIcon icono;
      * Creates new form AgregarCanciones
      */
     public AgregarCanciones(MainJTunes mainFrame, JTunes tunes) {
-    initComponents(); // Esta línea debe estar primero
-    this.setLocationRelativeTo(null);
-    this.tunes = tunes;
-    this.mainFrame = mainFrame;
-
-    // LÍNEAS CLAVE: Habilitar todos los campos de texto.
-    guardarCodigo.setEnabled(true);
-    guardarPrecio.setEnabled(true);
-    guardarNombre.setEnabled(true);
-}                           
+        initComponents();
+        this.mainFrame = mainFrame;
+        this.tunes = tunes; 
+        this.setLocationRelativeTo(null);
+        guardarCodigo.setEnabled(true);
+        guardarNombre.setEnabled(true);
+        guardarPrecio.setEnabled(true);
+}
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -277,16 +276,14 @@ public ImageIcon icono;
 
     private void imagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imagenActionPerformed
 
-        ImagenesUsuario imagenes = new ImagenesUsuario();
-        ImageIcon icono = ImagenesUsuario.chooseImage(this);
-          
-        if (icono != null) {
-     
-        
-        String nombre = ImagenesUsuario.nombreArchivoSeleccionado;
-        
-        ImagenSel.setIcon(icono);
-        }   
+    this.icono = ImagenesUsuario.chooseImage(this);
+      
+    if (this.icono != null) {
+        ImagenSel.setText(""); 
+        ImagenSel.setIcon(this.icono);
+    } else {
+        this.icono = null;
+    }  
     }//GEN-LAST:event_imagenActionPerformed
 
     /**
