@@ -238,10 +238,10 @@ public class ranking extends javax.swing.JFrame {
                 return;
             }
             
-            tunes.rateSong(songToRate.getCodigo(), rankingValue); //
-            JOptionPane.showMessageDialog(this, "¡Rating guardado exitosamente para la canción " + songToRate.getNombre() + "!", "Exito", JOptionPane.INFORMATION_MESSAGE); //
+            tunes.rateSong(songToRate.getCodigo(), rankingValue); 
+            JOptionPane.showMessageDialog(this, "¡Rating guardado exitosamente para la canción " + songToRate.getNombre() + "!", "Exito", JOptionPane.INFORMATION_MESSAGE); 
             
-            // Limpiar campos y deshabilitar
+        
             songToRate = null;
             guardarCodigo.setText("");
             guardarRanking.setText("");

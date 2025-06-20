@@ -557,7 +557,7 @@
         <Component class="javax.swing.JLabel" name="d1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -571,14 +571,14 @@
         <Component class="javax.swing.JLabel" name="d28">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="d29">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -592,7 +592,7 @@
         <Component class="javax.swing.JLabel" name="d30">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -606,7 +606,7 @@
         <Component class="javax.swing.JLabel" name="d31">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -620,7 +620,7 @@
         <Component class="javax.swing.JLabel" name="d32">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -634,7 +634,7 @@
         <Component class="javax.swing.JLabel" name="d33">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -648,7 +648,7 @@
         <Component class="javax.swing.JLabel" name="d34">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -669,7 +669,7 @@
         <Component class="javax.swing.JLabel" name="d35">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -683,7 +683,7 @@
         <Component class="javax.swing.JLabel" name="d36">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -697,7 +697,7 @@
         <Component class="javax.swing.JLabel" name="d37">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -711,7 +711,7 @@
         <Component class="javax.swing.JLabel" name="d38">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -725,7 +725,7 @@
         <Component class="javax.swing.JLabel" name="d39">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -739,7 +739,7 @@
         <Component class="javax.swing.JLabel" name="d40">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -753,7 +753,7 @@
         <Component class="javax.swing.JLabel" name="d41">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -767,7 +767,7 @@
         <Component class="javax.swing.JLabel" name="d42">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -781,7 +781,7 @@
         <Component class="javax.swing.JLabel" name="d43">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -795,7 +795,7 @@
         <Component class="javax.swing.JLabel" name="d44">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -809,7 +809,7 @@
         <Component class="javax.swing.JLabel" name="d45">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -823,7 +823,7 @@
         <Component class="javax.swing.JLabel" name="d46">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -837,7 +837,7 @@
         <Component class="javax.swing.JLabel" name="d47">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -851,7 +851,7 @@
         <Component class="javax.swing.JLabel" name="d48">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -865,7 +865,7 @@
         <Component class="javax.swing.JLabel" name="d49">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -879,7 +879,7 @@
         <Component class="javax.swing.JLabel" name="d50">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Showcard Gothic" size="10" style="0"/>
+              <Font name="Showcard Gothic" size="8" style="0"/>
             </Property>
           </Properties>
         </Component>

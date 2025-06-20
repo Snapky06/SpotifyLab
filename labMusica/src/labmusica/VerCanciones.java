@@ -43,24 +43,27 @@ private JTunes tunes;
         Song[] canciones = tunes.getAllSongs();
 
         for (int i = 0; i < Math.min(canciones.length, labelsDiscos.length); i++) {
-            Song cancionActual = canciones[i];
+        Song cancionActual = canciones[i];
 
-            if (cancionActual != null) {
-                if(labelsDiscos[i] != null) {
-                    labelsDiscos[i].setIcon(cancionActual.getImagenDisco());
-                }
-                
-                String rankingStr = String.format("%.2f", cancionActual.songRating());
-                String datosTexto = "Cod: " + cancionActual.getCodigo() + "\n"
-                                  + "Precio: L." + cancionActual.getPrecio() + "\n"
-                                  + "Rank: " + rankingStr;
-                
-                if(labelsDatos[i] != null) {
-                    labelsDatos[i].setText(datosTexto);
-                    labelsDatos[i].setToolTipText(cancionActual.getNombre());
-                }
+        if (cancionActual != null) {
+            if(labelsDiscos[i] != null) {
+                labelsDiscos[i].setIcon(cancionActual.getImagenDisco());
+            }
+            
+            String rankingStr = String.format("%.2f", cancionActual.songRating());
+
+            String datosTexto = "<html>"
+          + "Nombre: " + cancionActual.getNombre() + "<br>" 
+          + "Cod: " + cancionActual.getCodigo() + "<br>"
+          + "Precio: L." + cancionActual.getPrecio() + "<br>"
+          + "Rank: " + rankingStr
+          + "</html>";
+            
+            if(labelsDatos[i] != null) {
+                labelsDatos[i].setText(datosTexto);
             }
         }
+    }
  }
     
     /**
@@ -260,99 +263,99 @@ private JTunes tunes;
 
         dc1.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d1.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d1.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc28.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d28.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d28.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
-        d29.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d29.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc29.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d30.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d30.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc30.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d31.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d31.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc31.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d32.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d32.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc32.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d33.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d33.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc33.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d34.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d34.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc34.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
         dc35.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d35.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d35.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc36.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d36.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d36.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc37.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d37.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d37.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc38.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d38.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d38.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc39.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d39.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d39.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc40.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d40.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d40.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc41.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d41.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d41.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc42.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d42.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d42.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc43.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d43.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d43.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc44.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d44.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d44.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc45.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d45.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d45.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc46.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d46.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d46.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc47.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d47.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d47.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc48.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d48.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d48.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc49.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d49.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d49.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         dc50.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
 
-        d50.setFont(new java.awt.Font("Showcard Gothic", 0, 10)); // NOI18N
+        d50.setFont(new java.awt.Font("Showcard Gothic", 0, 8)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
