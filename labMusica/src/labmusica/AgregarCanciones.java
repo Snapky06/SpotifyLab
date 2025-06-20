@@ -4,6 +4,8 @@
  */
 package labmusica;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author saidn
@@ -15,8 +17,17 @@ public class AgregarCanciones extends javax.swing.JFrame {
      */
     public AgregarCanciones() {
         initComponents();
+        guardarCodigo.setEnabled(false);
+        guardarPrecio.setEnabled(false);
+        guardarNombre.setEnabled(false);
     }
-
+private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
+        guardarCodigo.setEnabled(false);
+        guardarPrecio.setEnabled(false);
+        guardarNombre.setEnabled(false);
+        
+        campoAHabilitar.setEnabled(true);
+}                                      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,11 +45,9 @@ public class AgregarCanciones extends javax.swing.JFrame {
         b2 = new javax.swing.JButton();
         codigo = new javax.swing.JButton();
         precio = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        guardarCodigo = new javax.swing.JTextField();
+        guardarNombre = new javax.swing.JTextField();
+        guardarPrecio = new javax.swing.JTextField();
         guardar = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
 
@@ -66,6 +75,11 @@ public class AgregarCanciones extends javax.swing.JFrame {
         codigo.setBackground(new java.awt.Color(0, 102, 51));
         codigo.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
         codigo.setText("codigo:");
+        codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoActionPerformed(evt);
+            }
+        });
 
         precio.setBackground(new java.awt.Color(0, 102, 51));
         precio.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
@@ -76,33 +90,26 @@ public class AgregarCanciones extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        guardarCodigo.setText("jTextField1");
+        guardarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                guardarCodigoActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("jTextField1");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        guardarNombre.setText("jTextField1");
+        guardarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                guardarNombreActionPerformed(evt);
             }
         });
 
-        jTextField3.setText("jTextField1");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        guardarPrecio.setText("jTextField1");
+        guardarPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                guardarPrecioActionPerformed(evt);
             }
         });
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
 
         guardar.setBackground(new java.awt.Color(0, 102, 51));
         guardar.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
@@ -127,7 +134,7 @@ public class AgregarCanciones extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(358, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(294, 294, 294))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -141,16 +148,15 @@ public class AgregarCanciones extends javax.swing.JFrame {
                             .addComponent(nombre))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(guardarCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(guardarNombre)
+                            .addComponent(guardarPrecio)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(guardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(regresar)))
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,20 +166,18 @@ public class AgregarCanciones extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codigo)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nombre)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guardarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(precio)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guardarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(b2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
                     .addComponent(regresar))
@@ -197,24 +201,25 @@ public class AgregarCanciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-        // TODO add your handling code here:
+        habilitarCampos(guardarNombre);
+        
     }//GEN-LAST:event_nombreActionPerformed
 
     private void precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioActionPerformed
-        // TODO add your handling code here:
+        habilitarCampos(guardarPrecio);
     }//GEN-LAST:event_precioActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void guardarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_guardarCodigoActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void guardarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_guardarNombreActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void guardarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarPrecioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_guardarPrecioActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         // TODO add your handling code here:
@@ -222,9 +227,14 @@ public class AgregarCanciones extends javax.swing.JFrame {
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         MainJTunes main = new MainJTunes();
+        
         this.setVisible(false);
         main.setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
+
+    private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
+       habilitarCampos(guardarCodigo);
+    }//GEN-LAST:event_codigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,15 +277,15 @@ public class AgregarCanciones extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton codigo;
     private javax.swing.JButton guardar;
+    private javax.swing.JTextField guardarCodigo;
+    private javax.swing.JTextField guardarNombre;
+    private javax.swing.JTextField guardarPrecio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton nombre;
     private javax.swing.JButton precio;
     private javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
+
+
 }
