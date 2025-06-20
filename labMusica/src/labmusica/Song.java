@@ -4,7 +4,6 @@
  */
 package labmusica;
 
-
-public class JTunes {
+public class Song {
     
 }
