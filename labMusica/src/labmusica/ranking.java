@@ -11,9 +11,10 @@ import javax.swing.JOptionPane;
  * @author saidn
  */
 public class ranking extends javax.swing.JFrame {
-private MainJTunes mainFrame;
+    private MainJTunes mainFrame;
     private JTunes tunes;
     private Song songToRate;
+
     /**
      * Creates new form ranking
      */
@@ -23,10 +24,11 @@ private MainJTunes mainFrame;
         this.tunes = tunes;
         this.setLocationRelativeTo(null);
         
-        // Habilitamos el campo de código pero deshabilitamos el de rating (precio)
+       
         this.guardarRanking.setEnabled(false);
         this.guardar.setEnabled(false);
     }
+    
       
     /**
      * This method is called from within the constructor to initialize the form.
@@ -165,7 +167,26 @@ private MainJTunes mainFrame;
     }// </editor-fold>//GEN-END:initComponents
 
     private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
-       
+       String codigoStr = guardarCodigo.getText();
+        if (codigoStr.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un código para buscar.", "Campo Vacío", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        songToRate = tunes.searchsong(codigoStr); //
+
+        if (songToRate != null) {
+            String songInfo = "<html>Canción: " + songToRate.getNombre() + "<br>Rating Actual: " + String.format("%.2f", songToRate.songRating()) + "</html>"; //
+            JOptionPane.showMessageDialog(this, songInfo, "Canción Encontrada", JOptionPane.INFORMATION_MESSAGE);
+            guardarRanking.setEnabled(true);
+            guardar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Canción no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            songToRate = null;
+            guardarRanking.setEnabled(false);
+            guardarRanking.setText("");
+            guardar.setEnabled(false);
+        }
     }//GEN-LAST:event_codigoActionPerformed
 
     private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
@@ -179,49 +200,25 @@ private MainJTunes mainFrame;
         }
 
         try {
-            int ranking = Integer.parseInt(guardarRanking.getText());
-            if (ranking < 1 || ranking > 5) {
-                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error", JOptionPane.ERROR_MESSAGE);
+            int rankingValue = Integer.parseInt(guardarRanking.getText());
+            if (rankingValue < 1 || rankingValue > 5) {
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             
-            tunes.rateSong(songToRate.getCodigo(), ranking);
-            JOptionPane.showMessageDialog(this, "Rating guardado exitosamente!", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            tunes.rateSong(songToRate.getCodigo(), rankingValue);
+            JOptionPane.showMessageDialog(this, "¡Rating guardado exitosamente para la canción " + songToRate.getNombre() + "!", "Exito", JOptionPane.INFORMATION_MESSAGE);
             
-            
+           
             songToRate = null;
             guardarCodigo.setText("");
-            infoCancion.setText("Info de la canción aparecerá aquí");
             guardarRanking.setText("");
             guardarRanking.setEnabled(false);
             guardar.setEnabled(false);
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido para el rating.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_guardarActionPerformed
-
-    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-        this.setVisible(false);
-        mainFrame.setVisible(true);
-    }//GEN-LAST:event_regresarActionPerformed
-
-    private void buscarCodigoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCodigoBtnActionPerformed
-        String codigo = guardarCodigo.getText();
-        songToRate = tunes.searchsong(codigo);
-
-        if (songToRate != null) {
-            infoCancion.setText("<html>Canción: " + songToRate.getNombre() + 
-                                "<br>Rating Actual: " + String.format("%.2f", songToRate.songRating()) + "</html>");
-            guardarRanking.setEnabled(true);
-            guardar.setEnabled(true);
-        } else {
-            infoCancion.setText("Canción no encontrada.");
-            songToRate = null;
-            guardarRanking.setEnabled(false);
-            guardar.setEnabled(false);
-        }
-        
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido para el rating.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        }    
     }//GEN-LAST:event_guardarCodigoActionPerformed
 
     private void guardarRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarRankingActionPerformed
@@ -229,10 +226,31 @@ private MainJTunes mainFrame;
     }//GEN-LAST:event_guardarRankingActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        JTunes cancion = new JTunes();
+        if (songToRate == null) {
+            JOptionPane.showMessageDialog(this, "Primero busque una canción.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-        
+        try {
+            int rankingValue = Integer.parseInt(guardarRanking.getText());
+            if (rankingValue < 1 || rankingValue > 5) {
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            tunes.rateSong(songToRate.getCodigo(), rankingValue); //
+            JOptionPane.showMessageDialog(this, "¡Rating guardado exitosamente para la canción " + songToRate.getNombre() + "!", "Exito", JOptionPane.INFORMATION_MESSAGE); //
+            
+            // Limpiar campos y deshabilitar
+            songToRate = null;
+            guardarCodigo.setText("");
+            guardarRanking.setText("");
+            guardarRanking.setEnabled(false);
+            guardar.setEnabled(false);
 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido para el rating.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_guardarActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
@@ -242,40 +260,6 @@ private MainJTunes mainFrame;
         main.setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ranking().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton codigo;
