@@ -1,28 +1,61 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package labmusica;
+import javax.swing.JLabel;
+import labmusica.JTunes;
+import labmusica.Song;
 
 /**
  *
  * @author saidn
  */
 public class VerCanciones extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VerCanciones
-     */
+private JTunes tunes;
+   private MainJTunes mainFrame;
+  
     public VerCanciones() {
         initComponents();
-        JTunes tunes = new JTunes();
         
-        for (int i = 0; i < tunes.getAllSongs().length; i++) {
-           
-            
-           
     }
+ public VerCanciones(MainJTunes mainFrame, JTunes tunes) {
+        this.tunes = tunes;
+        this.mainFrame = mainFrame;
+        initComponents();
+        this.setLocationRelativeTo(null);
+        
+        JLabel[] labelsDiscos = {
+            dc1, dc2, dc3, dc4, dc5, dc6, dc7, dc8, dc9, dc10, 
+            dc11, dc12, dc13, dc14, dc15, dc16, dc17, dc18, dc19, 
+            dc20, dc21, dc22, dc23, dc24, dc25, dc26, dc27
+        };
+        
+        JLabel[] labelsDatos = {
+            d1, d2, d3, d4, d5, d6, d7, d8, d9, d10,
+            d11, d12, d13, d14, d15, d16, d17, d18, d19,
+            d20, d21, d22, d23, d24, d25, d26, d27
+        };
+
+        Song[] canciones = tunes.getAllSongs();
+
+        for (int i = 0; i < Math.min(canciones.length, labelsDiscos.length); i++) {
+            Song cancionActual = canciones[i];
+
+            if (cancionActual != null) {
+                labelsDiscos[i].setIcon(cancionActual.getImagenDisco());
+                String datosTexto = "<html>"
+                                  + "Codigo: " + cancionActual.getCodigo() + "<br>"
+                                  + "Nombre: " + cancionActual.getNombre() + "<br>"
+                                  + "Precio: L." + cancionActual.getPrecio()
+                                  + "</html>";
+                labelsDatos[i].setText(datosTexto);
+            }
+        }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -628,37 +661,6 @@ public class VerCanciones extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VerCanciones().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b1;

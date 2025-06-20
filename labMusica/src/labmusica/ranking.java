@@ -4,31 +4,26 @@
  */
 package labmusica;
 
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author saidn
  */
-public class AgregarCanciones extends javax.swing.JFrame {
-    private JTunes tunes;
-    private MainJTunes mainFrame;
-public ImageIcon icono;
-    /**
-     * Creates new form AgregarCanciones
-     */
-    public AgregarCanciones(MainJTunes mainFrame, JTunes tunes) {
-    initComponents(); // Esta línea debe estar primero
-    this.setLocationRelativeTo(null);
-    this.tunes = tunes;
-    this.mainFrame = mainFrame;
+public class ranking extends javax.swing.JFrame {
 
-    // LÍNEAS CLAVE: Habilitar todos los campos de texto.
-    guardarCodigo.setEnabled(true);
-    guardarPrecio.setEnabled(true);
-    guardarNombre.setEnabled(true);
-}                           
+    /**
+     * Creates new form ranking
+     */
+    public ranking() {
+        initComponents();
+    }
+    
+private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
+        guardarCodigo.setEnabled(false);
+        guardarPrecio.setEnabled(false);
+        guardarNombre.setEnabled(false);
+        
+        campoAHabilitar.setEnabled(true);
+}    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,20 +33,14 @@ public ImageIcon icono;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        nombre = new javax.swing.JButton();
-        imagen = new javax.swing.JButton();
         codigo = new javax.swing.JButton();
-        precio = new javax.swing.JButton();
+        ranking = new javax.swing.JButton();
         guardarCodigo = new javax.swing.JTextField();
-        guardarNombre = new javax.swing.JTextField();
         guardarPrecio = new javax.swing.JTextField();
         guardar = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
-        ImagenSel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,25 +48,7 @@ public ImageIcon icono;
 
         jLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Agregar canciones");
-
-        nombre.setBackground(new java.awt.Color(0, 102, 51));
-        nombre.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        nombre.setText("Nombre:");
-        nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreActionPerformed(evt);
-            }
-        });
-
-        imagen.setBackground(new java.awt.Color(0, 102, 51));
-        imagen.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        imagen.setText("Imagen");
-        imagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imagenActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Ranking ");
 
         codigo.setBackground(new java.awt.Color(0, 102, 51));
         codigo.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
@@ -88,24 +59,18 @@ public ImageIcon icono;
             }
         });
 
-        precio.setBackground(new java.awt.Color(0, 102, 51));
-        precio.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        precio.setText("Precio :");
-        precio.addActionListener(new java.awt.event.ActionListener() {
+        ranking.setBackground(new java.awt.Color(0, 102, 51));
+        ranking.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        ranking.setText("ranking");
+        ranking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precioActionPerformed(evt);
+                rankingActionPerformed(evt);
             }
         });
 
         guardarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarCodigoActionPerformed(evt);
-            }
-        });
-
-        guardarNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarNombreActionPerformed(evt);
             }
         });
 
@@ -133,11 +98,6 @@ public ImageIcon icono;
             }
         });
 
-        ImagenSel.setBackground(new java.awt.Color(51, 51, 0));
-        ImagenSel.setFont(new java.awt.Font("Showcard Gothic", 1, 12)); // NOI18N
-        ImagenSel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ImagenSel.setText("Imagen");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,18 +108,11 @@ public ImageIcon icono;
                         .addGap(371, 371, 371)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(codigo)
-                            .addComponent(nombre)
-                            .addComponent(precio)
-                            .addComponent(imagen))
+                            .addComponent(ranking))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(guardarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                                    .addComponent(guardarPrecio)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addComponent(ImagenSel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(guardarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -170,32 +123,24 @@ public ImageIcon icono;
                         .addComponent(regresar)))
                 .addContainerGap(321, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(294, 294, 294))
+                .addGap(455, 455, 455))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel1)
-                .addGap(64, 64, 64)
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codigo)
                     .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombre)
-                    .addComponent(guardarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(precio)
+                    .addComponent(ranking)
                     .addComponent(guardarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imagen)
-                    .addComponent(ImagenSel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
                     .addComponent(regresar))
@@ -218,97 +163,84 @@ public ImageIcon icono;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-    
-    }//GEN-LAST:event_nombreActionPerformed
+    private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
+        habilitarCampos(guardarCodigo);
+    }//GEN-LAST:event_codigoActionPerformed
 
-    private void precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioActionPerformed
-
-    }//GEN-LAST:event_precioActionPerformed
+    private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
+        habilitarCampos(guardarPrecio);
+    }//GEN-LAST:event_rankingActionPerformed
 
     private void guardarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCodigoActionPerformed
-        // TODO add your handling code here:
+        JTunes encontrar = new JTunes();
+        
+       if(encontrar.searchsong(guardarCodigo.getText()) ) {
+       
+       }
+        
     }//GEN-LAST:event_guardarCodigoActionPerformed
-
-    private void guardarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_guardarNombreActionPerformed
 
     private void guardarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarPrecioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarPrecioActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        String codigoStr = guardarCodigo.getText();
-        String nombreStr = guardarNombre.getText();
-        String precioStr = guardarPrecio.getText();
+        JTunes cancion = new JTunes();
 
-        if (codigoStr.trim().isEmpty() || nombreStr.trim().isEmpty() || precioStr.trim().isEmpty() || this.icono == null) {
-            JOptionPane.showMessageDialog(this, "Por favor, llene todos los campos y seleccione una imagen.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        
 
-        boolean success = tunes.addSong(codigoStr, nombreStr, precioStr, this.icono);
-
-        if (success) {
-            JOptionPane.showMessageDialog(this, "Canción guardada exitosamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            // Limpiar campos
-            guardarCodigo.setText("");
-            guardarNombre.setText("");
-            guardarPrecio.setText("");
-            ImagenSel.setIcon(null);
-            ImagenSel.setText("Imagen");
-            this.icono = null;
-        } else {
-            JOptionPane.showMessageDialog(this, "No se pudo guardar la canción. El código ya existe o no hay más espacio.", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
     }//GEN-LAST:event_guardarActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         MainJTunes main = new MainJTunes();
-        
+
         this.setVisible(false);
         main.setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
 
-    private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
-
-    }//GEN-LAST:event_codigoActionPerformed
-
-    private void imagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imagenActionPerformed
-
-        ImagenesUsuario imagenes = new ImagenesUsuario();
-        ImageIcon icono = ImagenesUsuario.chooseImage(this);
-          
-        if (icono != null) {
-     
-        
-        String nombre = ImagenesUsuario.nombreArchivoSeleccionado;
-        
-        ImagenSel.setIcon(icono);
-        }   
-    }//GEN-LAST:event_imagenActionPerformed
-
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ranking().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ImagenSel;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton codigo;
     private javax.swing.JButton guardar;
     private javax.swing.JTextField guardarCodigo;
-    private javax.swing.JTextField guardarNombre;
     private javax.swing.JTextField guardarPrecio;
-    private javax.swing.JButton imagen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton nombre;
-    private javax.swing.JButton precio;
+    private javax.swing.JButton ranking;
     private javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
-
-
 }

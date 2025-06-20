@@ -10,25 +10,29 @@ public class JTunes {
 
     private Song[] canciones;
 
-    public boolean addSong(String codigo, String nombre, String precio, ImageIcon imagenDisco) {
 
-        for (int i = 0; i < canciones.length; i++) {
-            if (canciones[i] != null && canciones[i].getCodigo().equals(codigo)) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < canciones.length; i++) {
-            if (canciones[i].equals(null)) {
-                canciones[i] = new Song(codigo, nombre, precio, imagenDisco);
-                return true;
-            }
-        }
-
-        return false;
+    public JTunes() {
+        canciones = new Song[100];
     }
 
-    public Song searchsong(int codigo) {
+    public boolean addSong(String codigo, String nombre, String precio, ImageIcon imagenDisco) {
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] != null && canciones[i].getCodigo().equals(codigo)) {
+                return false; 
+            }
+        }
+
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] == null) {
+                canciones[i] = new Song(codigo, nombre, precio, imagenDisco);
+                return true; 
+            }
+        }
+
+        return false; // 
+    }
+
+    public Song searchsong(String codigo) { 
         for (int i = 0; i < canciones.length; i++) {
             if (canciones[i] != null && canciones[i].getCodigo().equals(codigo)) {
                 return canciones[i];
@@ -37,7 +41,7 @@ public class JTunes {
         return null;
     }
 
-    public void rateSong(int codigo, int stars) {
+    public void rateSong(String codigo, int stars) { 
         Song song = searchsong(codigo);
         if (song != null) {
             song.addstars(stars);
@@ -45,7 +49,6 @@ public class JTunes {
     }
 
     public Song[] getAllSongs() {
-
         int contador = 0;
         for (int i = 0; i < canciones.length; i++) {
             if (canciones[i] != null) {

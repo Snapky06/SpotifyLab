@@ -9,12 +9,13 @@ package labmusica;
  * @author saidn
  */
 public class MainJTunes extends javax.swing.JFrame {
-
+private JTunes tunes;
     /**
      * Creates new form MainJTunes
      */
     public MainJTunes() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -31,6 +32,7 @@ public class MainJTunes extends javax.swing.JFrame {
         b1 = new javax.swing.JButton();
         b2 = new javax.swing.JButton();
         b3 = new javax.swing.JButton();
+        ranking = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +69,15 @@ public class MainJTunes extends javax.swing.JFrame {
             }
         });
 
+        ranking.setBackground(new java.awt.Color(0, 102, 51));
+        ranking.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        ranking.setText("Ranking");
+        ranking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rankingActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -80,7 +91,8 @@ public class MainJTunes extends javax.swing.JFrame {
                         .addGap(366, 366, 366)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(b1)
-                            .addComponent(b3)))
+                            .addComponent(b3)
+                            .addComponent(ranking)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(386, 386, 386)
                         .addComponent(b2)))
@@ -95,9 +107,11 @@ public class MainJTunes extends javax.swing.JFrame {
                 .addComponent(b1)
                 .addGap(18, 18, 18)
                 .addComponent(b3)
+                .addGap(16, 16, 16)
+                .addComponent(ranking)
                 .addGap(18, 18, 18)
                 .addComponent(b2)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,7 +137,7 @@ public class MainJTunes extends javax.swing.JFrame {
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-      AgregarCanciones agregar = new AgregarCanciones();
+      AgregarCanciones agregar = new AgregarCanciones(this,tunes);
       
         this.setVisible(false);
        agregar.setVisible(true);
@@ -132,6 +146,10 @@ public class MainJTunes extends javax.swing.JFrame {
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_b2ActionPerformed
+
+    private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rankingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,5 +192,6 @@ public class MainJTunes extends javax.swing.JFrame {
     private javax.swing.JButton b3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton ranking;
     // End of variables declaration//GEN-END:variables
 }
