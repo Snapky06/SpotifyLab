@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
  * @author saidn
  */
 public class ranking extends javax.swing.JFrame {
-    private MainJTunes mainFrame;
+    private Main mainFrame;
     private JTunes tunes;
     private Song songToRate;
 
     /**
      * Creates new form ranking
      */
-    public ranking(MainJTunes mainFrame, JTunes tunes) {
+    public ranking(Main mainFrame, JTunes tunes) {
         initComponents();
         this.mainFrame = mainFrame;
         this.tunes = tunes;
@@ -47,6 +47,7 @@ public class ranking extends javax.swing.JFrame {
         guardarRanking = new javax.swing.JTextField();
         guardar = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,11 +55,11 @@ public class ranking extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Ranking ");
+        jLabel1.setText("calificar ");
 
         codigo.setBackground(new java.awt.Color(0, 102, 51));
         codigo.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        codigo.setText("codigo:");
+        codigo.setText("codigo de la cancion:");
         codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codigoActionPerformed(evt);
@@ -67,7 +68,7 @@ public class ranking extends javax.swing.JFrame {
 
         ranking.setBackground(new java.awt.Color(0, 102, 51));
         ranking.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        ranking.setText("ranking");
+        ranking.setText("Calificacion");
         ranking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rankingActionPerformed(evt);
@@ -104,6 +105,9 @@ public class ranking extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Presione para comprobar si el codigo existe");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,19 +127,23 @@ public class ranking extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(guardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(regresar)))
+                        .addComponent(regresar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(542, 542, 542)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(405, 405, 405)
+                        .addComponent(jLabel2)))
                 .addContainerGap(321, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(455, 455, 455))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(95, 95, 95)
                 .addComponent(jLabel1)
-                .addGap(69, 69, 69)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codigo)
                     .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -167,21 +175,21 @@ public class ranking extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
-       String codigoStr = guardarCodigo.getText();
-        if (codigoStr.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese un código para buscar.", "Campo Vacío", JOptionPane.WARNING_MESSAGE);
+       String codigo = guardarCodigo.getText();
+        if (codigo.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un codigo para buscar.", " Vacio", JOptionPane.PLAIN_MESSAGE);
             return;
         }
 
-        songToRate = tunes.searchsong(codigoStr); //
+        songToRate = tunes.searchsong(codigo); 
 
         if (songToRate != null) {
-            String songInfo = "<html>Canción: " + songToRate.getNombre() + "<br>Rating Actual: " + String.format("%.2f", songToRate.songRating()) + "</html>"; //
-            JOptionPane.showMessageDialog(this, songInfo, "Canción Encontrada", JOptionPane.INFORMATION_MESSAGE);
+            String songInfo = "<html>Cancion: " + songToRate.getNombre() + "<br>Rating Actual: " + String.format("%.2f", songToRate.songRating()) + "</html>"; 
+            JOptionPane.showMessageDialog(this, songInfo, "Cancion Encontrada", JOptionPane.PLAIN_MESSAGE);
             guardarRanking.setEnabled(true);
             guardar.setEnabled(true);
         } else {
-            JOptionPane.showMessageDialog(this, "Canción no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Cancion no encontrada.", "Error", JOptionPane.PLAIN_MESSAGE);
             songToRate = null;
             guardarRanking.setEnabled(false);
             guardarRanking.setText("");
@@ -195,19 +203,19 @@ public class ranking extends javax.swing.JFrame {
 
     private void guardarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCodigoActionPerformed
         if (songToRate == null) {
-            JOptionPane.showMessageDialog(this, "Primero busque una canción.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Primero busque una cancion.", "Error", JOptionPane.PLAIN_MESSAGE);
             return;
         }
 
         try {
             int rankingValue = Integer.parseInt(guardarRanking.getText());
             if (rankingValue < 1 || rankingValue > 5) {
-                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error de Validacion", JOptionPane.PLAIN_MESSAGE);
                 return;
             }
             
             tunes.rateSong(songToRate.getCodigo(), rankingValue);
-            JOptionPane.showMessageDialog(this, "¡Rating guardado exitosamente para la canción " + songToRate.getNombre() + "!", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Rating guardado exitosamente para la cancion " + songToRate.getNombre() + "", "Exito", JOptionPane.PLAIN_MESSAGE);
             
            
             songToRate = null;
@@ -217,7 +225,7 @@ public class ranking extends javax.swing.JFrame {
             guardar.setEnabled(false);
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido para el rating.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un numero valido para el rating.", "Error de Formato", JOptionPane.PLAIN_MESSAGE);
         }    
     }//GEN-LAST:event_guardarCodigoActionPerformed
 
@@ -227,19 +235,19 @@ public class ranking extends javax.swing.JFrame {
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         if (songToRate == null) {
-            JOptionPane.showMessageDialog(this, "Primero busque una canción.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Primero busque una cancion.", "Error", JOptionPane.PLAIN_MESSAGE);
             return;
         }
 
         try {
             int rankingValue = Integer.parseInt(guardarRanking.getText());
             if (rankingValue < 1 || rankingValue > 5) {
-                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error de Validacion", JOptionPane.PLAIN_MESSAGE);
                 return;
             }
             
             tunes.rateSong(songToRate.getCodigo(), rankingValue); 
-            JOptionPane.showMessageDialog(this, "¡Rating guardado exitosamente para la canción " + songToRate.getNombre() + "!", "Exito", JOptionPane.INFORMATION_MESSAGE); 
+            JOptionPane.showMessageDialog(this, "Rating guardado exitosamente para la cancion " + songToRate.getNombre() + "", "Exito", JOptionPane.PLAIN_MESSAGE); 
             
         
             songToRate = null;
@@ -249,7 +257,7 @@ public class ranking extends javax.swing.JFrame {
             guardar.setEnabled(false);
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido para el rating.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un numero valido para el rating.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_guardarActionPerformed
 
@@ -265,6 +273,7 @@ public class ranking extends javax.swing.JFrame {
     private javax.swing.JTextField guardarCodigo;
     private javax.swing.JTextField guardarRanking;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton ranking;
     private javax.swing.JButton regresar;
