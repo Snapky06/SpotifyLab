@@ -13,22 +13,29 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ImagenesUsuario {
    
+    public static String nombreArchivoSeleccionado;
+
     public static ImageIcon chooseImage(JFrame parent) {
-       
+        
         JFileChooser eligirimg = new JFileChooser();
-       
+        
         FileNameExtensionFilter tipo = new FileNameExtensionFilter("Imagenes (*.jpg, *.jpeg, *.png, *.gif)","jpg", "jpeg", "png", "gif");
         eligirimg.setFileFilter(tipo);
         eligirimg.setAcceptAllFileFilterUsed(false); 
 
-       
+        
         int resultado = eligirimg.showOpenDialog(parent);
         if (resultado == JFileChooser.APPROVE_OPTION) {
             File dato = eligirimg.getSelectedFile();
             
+            
+            nombreArchivoSeleccionado = dato.getName();
+            
             return new ImageIcon(dato.getAbsolutePath());
         } else {
-           
+            
+            nombreArchivoSeleccionado = null;
+            
             return null;
         }
     }

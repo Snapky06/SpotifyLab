@@ -4,7 +4,7 @@
  */
 package labmusica;
 
-import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -42,7 +42,7 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nombre = new javax.swing.JButton();
-        b2 = new javax.swing.JButton();
+        imagen = new javax.swing.JButton();
         codigo = new javax.swing.JButton();
         precio = new javax.swing.JButton();
         guardarCodigo = new javax.swing.JTextField();
@@ -50,6 +50,7 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
         guardarPrecio = new javax.swing.JTextField();
         guardar = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
+        ImagenSel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,9 +69,14 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
             }
         });
 
-        b2.setBackground(new java.awt.Color(0, 102, 51));
-        b2.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        b2.setText("Imagen");
+        imagen.setBackground(new java.awt.Color(0, 102, 51));
+        imagen.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        imagen.setText("Imagen");
+        imagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imagenActionPerformed(evt);
+            }
+        });
 
         codigo.setBackground(new java.awt.Color(0, 102, 51));
         codigo.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
@@ -90,21 +96,18 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
             }
         });
 
-        guardarCodigo.setText("jTextField1");
         guardarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarCodigoActionPerformed(evt);
             }
         });
 
-        guardarNombre.setText("jTextField1");
         guardarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarNombreActionPerformed(evt);
             }
         });
 
-        guardarPrecio.setText("jTextField1");
         guardarPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarPrecioActionPerformed(evt);
@@ -129,34 +132,46 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
             }
         });
 
+        ImagenSel.setBackground(new java.awt.Color(51, 51, 0));
+        ImagenSel.setFont(new java.awt.Font("Showcard Gothic", 1, 12)); // NOI18N
+        ImagenSel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ImagenSel.setText("Imagen");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(358, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(294, 294, 294))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(371, 371, 371)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(b2)
                             .addComponent(codigo)
+                            .addComponent(nombre)
                             .addComponent(precio)
-                            .addComponent(nombre))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(guardarCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                            .addComponent(guardarNombre)
-                            .addComponent(guardarPrecio)))
+                            .addComponent(imagen))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(guardarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                                    .addComponent(guardarPrecio)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(ImagenSel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(guardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(regresar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(294, 294, 294))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,15 +183,17 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
                     .addComponent(codigo)
                     .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre)
                     .addComponent(guardarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(precio)
                     .addComponent(guardarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(b2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imagen)
+                    .addComponent(ImagenSel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
@@ -236,6 +253,20 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
        habilitarCampos(guardarCodigo);
     }//GEN-LAST:event_codigoActionPerformed
 
+    private void imagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imagenActionPerformed
+
+        ImagenesUsuario imagenes = new ImagenesUsuario();
+        ImageIcon icono = ImagenesUsuario.chooseImage(this);
+          
+        if (icono != null) {
+     
+        
+        String nombre = ImagenesUsuario.nombreArchivoSeleccionado;
+        
+        ImagenSel.setIcon(icono);
+        }   
+    }//GEN-LAST:event_imagenActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,7 +303,7 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b2;
+    private javax.swing.JLabel ImagenSel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton codigo;
@@ -280,6 +311,7 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
     private javax.swing.JTextField guardarCodigo;
     private javax.swing.JTextField guardarNombre;
     private javax.swing.JTextField guardarPrecio;
+    private javax.swing.JButton imagen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nombre;
