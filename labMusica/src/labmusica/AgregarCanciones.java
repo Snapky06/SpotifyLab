@@ -26,11 +26,17 @@ public class AgregarCanciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        b1 = new javax.swing.JButton();
+        nombre = new javax.swing.JButton();
         b2 = new javax.swing.JButton();
-        b3 = new javax.swing.JButton();
+        codigo = new javax.swing.JButton();
+        precio = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,56 +44,81 @@ public class AgregarCanciones extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Spotitec");
+        jLabel1.setText("Agregar canciones");
 
-        b1.setBackground(new java.awt.Color(0, 102, 51));
-        b1.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        b1.setText("MOstrar ");
-        b1.addActionListener(new java.awt.event.ActionListener() {
+        nombre.setBackground(new java.awt.Color(0, 102, 51));
+        nombre.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        nombre.setText("Nombre:");
+        nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b1ActionPerformed(evt);
+                nombreActionPerformed(evt);
             }
         });
 
         b2.setBackground(new java.awt.Color(0, 102, 51));
         b2.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        b2.setText("Salir ");
+        b2.setText("Imagen");
 
-        b3.setBackground(new java.awt.Color(0, 102, 51));
-        b3.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
-        b3.setText("Agregar ");
+        codigo.setBackground(new java.awt.Color(0, 102, 51));
+        codigo.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        codigo.setText("codigo:");
+
+        precio.setBackground(new java.awt.Color(0, 102, 51));
+        precio.setFont(new java.awt.Font("Showcard Gothic", 1, 24)); // NOI18N
+        precio.setText("Precio :");
+        precio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precioActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("jTextField1");
+
+        jTextField2.setText("jTextField1");
+
+        jTextField3.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(207, 207, 207)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(326, 326, 326)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(366, 366, 366)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(b1)
-                            .addComponent(b3)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(386, 386, 386)
-                        .addComponent(b2)))
-                .addContainerGap(356, Short.MAX_VALUE))
+                            .addComponent(b2)
+                            .addComponent(codigo)
+                            .addComponent(precio)
+                            .addComponent(nombre))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(475, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(94, 94, 94)
                 .addComponent(jLabel1)
-                .addGap(108, 108, 108)
-                .addComponent(b1)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codigo)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(b3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombre)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(precio)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(b2)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,9 +137,13 @@ public class AgregarCanciones extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_b1ActionPerformed
+    }//GEN-LAST:event_nombreActionPerformed
+
+    private void precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,10 +181,16 @@ public class AgregarCanciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b1;
     private javax.swing.JButton b2;
-    private javax.swing.JButton b3;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton codigo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton nombre;
+    private javax.swing.JButton precio;
     // End of variables declaration//GEN-END:variables
 }
