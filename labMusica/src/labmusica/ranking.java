@@ -254,10 +254,8 @@ public class ranking extends javax.swing.JFrame {
     }//GEN-LAST:event_guardarActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-        MainJTunes main = new MainJTunes();
-
-        this.setVisible(false);
-        main.setVisible(true);
+        this.dispose();
+    mainFrame.setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
 
 

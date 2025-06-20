@@ -6,8 +6,8 @@
  */
 package labmusica;
 import javax.swing.JLabel;
-import labmusica.JTunes;
-import labmusica.Song;
+import javax.swing.JTextArea;
+import javax.swing.UIManager;
 
 /**
  *
@@ -28,16 +28,17 @@ private JTunes tunes;
         this.setLocationRelativeTo(null);
         
         JLabel[] labelsDiscos = {
-            dc1, dc2, dc3, dc4, dc5, dc6, dc7, dc8, dc9, dc10, 
-            dc11, dc12, dc13, dc14, dc15, dc16, dc17, dc18, dc19, 
-            dc20, dc21, dc22, dc23, dc24, dc25, dc26, dc27
+            dc1, dc28, dc29, dc30, dc31, dc32, dc33, dc34, dc35, dc36, 
+            dc37, dc38, dc39, dc40, dc41, dc42, dc43, dc44, dc45, 
+            dc46, dc47, dc48, dc49, dc50
         };
         
         JLabel[] labelsDatos = {
-            d1, d2, d3, d4, d5, d6, d7, d8, d9, d10,
-            d11, d12, d13, d14, d15, d16, d17, d18, d19,
-            d20, d21, d22, d23, d24, d25, d26, d27
+            d1, d28, d29, d30, d31, d32, d33, d34, d35, d36,
+            d37, d38, d39, d40, d41, d42, d43, d44, d45,
+            d46, d47, d48, d49, d50
         };
+
 
         Song[] canciones = tunes.getAllSongs();
 
@@ -45,16 +46,22 @@ private JTunes tunes;
             Song cancionActual = canciones[i];
 
             if (cancionActual != null) {
-                labelsDiscos[i].setIcon(cancionActual.getImagenDisco());
-                String datosTexto = "<html>"
-                                  + "Codigo: " + cancionActual.getCodigo() + "<br>"
-                                  + "Nombre: " + cancionActual.getNombre() + "<br>"
-                                  + "Precio: L." + cancionActual.getPrecio()
-                                  + "</html>";
-                labelsDatos[i].setText(datosTexto);
+                if(labelsDiscos[i] != null) {
+                    labelsDiscos[i].setIcon(cancionActual.getImagenDisco());
+                }
+                
+                String rankingStr = String.format("%.2f", cancionActual.songRating());
+                String datosTexto = "Cod: " + cancionActual.getCodigo() + "\n"
+                                  + "Precio: L." + cancionActual.getPrecio() + "\n"
+                                  + "Rank: " + rankingStr;
+                
+                if(labelsDatos[i] != null) {
+                    labelsDatos[i].setText(datosTexto);
+                    labelsDatos[i].setToolTipText(cancionActual.getNombre());
+                }
             }
         }
-    }
+ }
     
     /**
      * This method is called from within the constructor to initialize the form.
