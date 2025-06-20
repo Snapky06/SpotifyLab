@@ -43,7 +43,7 @@ private int codigo;
 
     
      
-    public void addStars(int stars) {
+    public void addstars(int stars) {
         if (stars >= 0 && stars <= 5) {
             sumaEstrellas += stars;
             totalReviews++;

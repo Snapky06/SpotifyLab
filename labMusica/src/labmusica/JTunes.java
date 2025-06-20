@@ -5,6 +5,74 @@
 package labmusica;
 
 
+import javax.swing.ImageIcon;
+
 public class JTunes {
+   
+    private Song[] canciones;
+
+  
+    public JTunes(int size) {
+        this.canciones = new Song[size];
+    }
+
+   
+    public boolean addSong(int codigo, String nombre, double precio, ImageIcon imagenDisco) {
+        
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] != null && canciones[i].getCodigo() == codigo) {
+                return false;
+            }
+        }
+        
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] == null) {
+                canciones[i] = new Song(codigo, nombre, precio, imagenDisco);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+   
+    public Song searchsong(int codigo) {
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] != null && canciones[i].getCodigo() == codigo) {
+                return canciones[i];
+            }
+        }
+        return null;
+    }
+
+   
+    public void rateSong(int codigo, int stars) {
+        Song song = searchsong(codigo);
+        if (song != null) {
+            song.addstars(stars);
+        }
+    }
+
     
+     
+     
+    public Song[] getAllSongs() {
+        
+        int contador = 0;
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] != null) {
+                contador++;
+            }
+        }
+        
+        Song[] songvalidas = new Song[contador];
+        int pos= 0;
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] != null) {
+                songvalidas[pos++] = canciones[i];
+            }
+        }
+        return songvalidas;
+    }
 }
+
