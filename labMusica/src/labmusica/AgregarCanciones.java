@@ -238,29 +238,60 @@ public ImageIcon icono;
     }//GEN-LAST:event_guardarPrecioActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        String codigoStr = guardarCodigo.getText();
-        String nombreStr = guardarNombre.getText();
-        String precioStr = guardarPrecio.getText();
-
-        if (codigoStr.trim().isEmpty() || nombreStr.trim().isEmpty() || precioStr.trim().isEmpty() || this.icono == null) {
-            JOptionPane.showMessageDialog(this, "Por favor, llene todos los campos y seleccione una imagen.", "Error", JOptionPane.ERROR_MESSAGE);
+        if (songToRate == null) {
+            JOptionPane.showMessageDialog(this, "Primero debe buscar una canción válida.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        boolean success = tunes.addSong(codigoStr, nombreStr, precioStr, this.icono);
-
-        if (success) {
-            JOptionPane.showMessageDialog(this, "Canción guardada exitosamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            // Limpiar campos
+        try {
+            int ranking = Integer.parseInt(guardarRanking.getText());
+            if (ranking < 1 || ranking > 5) {
+                JOptionPane.showMessageDialog(this, "El rating debe ser un número entre 1 y 5.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            tunes.rateSong(songToRate.getCodigo(), ranking);
+            JOptionPane.showMessageDialog(this, "¡Rating guardado con éxito para la canción " + songToRate.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Limpiar campos y deshabilitar
+            songToRate = null;
             guardarCodigo.setText("");
-            guardarNombre.setText("");
-            guardarPrecio.setText("");
-            ImagenSel.setIcon(null);
-            ImagenSel.setText("Imagen");
-            this.icono = null;
+            infoCancionLabel.setText("Info de la canción aparecerá aquí");
+            guardarRanking.setText("");
+            guardarRanking.setEnabled(false);
+            guardar.setEnabled(false);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido para el rating.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        }
+    }                                       
+
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.setVisible(false);
+        mainFrame.setVisible(true);
+    }                                        
+
+    private void buscarCodigoBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        String codigo = guardarCodigo.getText();
+        if (codigo.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un código para buscar.", "Campo Vacío", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        songToRate = tunes.searchsong(codigo);
+
+        if (songToRate != null) {
+            infoCancionLabel.setText("<html><center>Canción: " + songToRate.getNombre() + 
+                                "<br>Rating Actual: " + String.format("%.2f", songToRate.songRating()) + " estrellas</center></html>");
+            guardarRanking.setEnabled(true);
+            guardar.setEnabled(true);
         } else {
-            JOptionPane.showMessageDialog(this, "No se pudo guardar la canción. El código ya existe o no hay más espacio.", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
+            infoCancionLabel.setText("No se encontró ninguna canción con ese código.");
+            songToRate = null;
+            guardarRanking.setEnabled(false);
+            guardarRanking.setText("");
+            guardar.setEnabled(false);
+        }
     }//GEN-LAST:event_guardarActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed

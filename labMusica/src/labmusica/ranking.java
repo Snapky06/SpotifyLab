@@ -4,26 +4,30 @@
  */
 package labmusica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author saidn
  */
 public class ranking extends javax.swing.JFrame {
-
+private MainJTunes mainFrame;
+    private JTunes tunes;
+    private Song songToRate;
     /**
      * Creates new form ranking
      */
-    public ranking() {
+    public ranking(MainJTunes mainFrame, JTunes tunes) {
         initComponents();
-    }
-    
-private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
-        guardarCodigo.setEnabled(false);
-        guardarPrecio.setEnabled(false);
-        guardarNombre.setEnabled(false);
+        this.mainFrame = mainFrame;
+        this.tunes = tunes;
+        this.setLocationRelativeTo(null);
         
-        campoAHabilitar.setEnabled(true);
-}    
+        // Habilitamos el campo de código pero deshabilitamos el de rating (precio)
+        this.guardarRanking.setEnabled(false);
+        this.guardar.setEnabled(false);
+    }
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +42,7 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
         codigo = new javax.swing.JButton();
         ranking = new javax.swing.JButton();
         guardarCodigo = new javax.swing.JTextField();
-        guardarPrecio = new javax.swing.JTextField();
+        guardarRanking = new javax.swing.JTextField();
         guardar = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
 
@@ -74,9 +78,9 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
             }
         });
 
-        guardarPrecio.addActionListener(new java.awt.event.ActionListener() {
+        guardarRanking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarPrecioActionPerformed(evt);
+                guardarRankingActionPerformed(evt);
             }
         });
 
@@ -109,13 +113,10 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(codigo)
                             .addComponent(ranking))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(guardarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guardarRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(guardar)
@@ -139,7 +140,7 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
                 .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ranking)
-                    .addComponent(guardarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guardarRanking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
@@ -164,25 +165,68 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
     }// </editor-fold>//GEN-END:initComponents
 
     private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
-        habilitarCampos(guardarCodigo);
+       
     }//GEN-LAST:event_codigoActionPerformed
 
     private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
-        habilitarCampos(guardarPrecio);
+   
     }//GEN-LAST:event_rankingActionPerformed
 
     private void guardarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCodigoActionPerformed
-        JTunes encontrar = new JTunes();
-        
-       if(encontrar.searchsong(guardarCodigo.getText()) ) {
-       
-       }
+        if (songToRate == null) {
+            JOptionPane.showMessageDialog(this, "Primero busque una canción.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            int ranking = Integer.parseInt(guardarRanking.getText());
+            if (ranking < 1 || ranking > 5) {
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un rating entre 1 y 5.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            tunes.rateSong(songToRate.getCodigo(), ranking);
+            JOptionPane.showMessageDialog(this, "Rating guardado exitosamente!", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            
+            
+            songToRate = null;
+            guardarCodigo.setText("");
+            infoCancion.setText("Info de la canción aparecerá aquí");
+            guardarRanking.setText("");
+            guardarRanking.setEnabled(false);
+            guardar.setEnabled(false);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido para el rating.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_guardarActionPerformed
+
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
+        this.setVisible(false);
+        mainFrame.setVisible(true);
+    }//GEN-LAST:event_regresarActionPerformed
+
+    private void buscarCodigoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCodigoBtnActionPerformed
+        String codigo = guardarCodigo.getText();
+        songToRate = tunes.searchsong(codigo);
+
+        if (songToRate != null) {
+            infoCancion.setText("<html>Canción: " + songToRate.getNombre() + 
+                                "<br>Rating Actual: " + String.format("%.2f", songToRate.songRating()) + "</html>");
+            guardarRanking.setEnabled(true);
+            guardar.setEnabled(true);
+        } else {
+            infoCancion.setText("Canción no encontrada.");
+            songToRate = null;
+            guardarRanking.setEnabled(false);
+            guardar.setEnabled(false);
+        }
         
     }//GEN-LAST:event_guardarCodigoActionPerformed
 
-    private void guardarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarPrecioActionPerformed
+    private void guardarRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarRankingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guardarPrecioActionPerformed
+    }//GEN-LAST:event_guardarRankingActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         JTunes cancion = new JTunes();
@@ -237,7 +281,7 @@ private void habilitarCampos(javax.swing.JTextField campoAHabilitar){
     private javax.swing.JButton codigo;
     private javax.swing.JButton guardar;
     private javax.swing.JTextField guardarCodigo;
-    private javax.swing.JTextField guardarPrecio;
+    private javax.swing.JTextField guardarRanking;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton ranking;

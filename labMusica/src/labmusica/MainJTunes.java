@@ -16,6 +16,7 @@ private JTunes tunes;
     public MainJTunes() {
         initComponents();
         this.setLocationRelativeTo(null);
+        tunes = new JTunes();
     }
 
     /**
@@ -131,16 +132,17 @@ private JTunes tunes;
     }// </editor-fold>//GEN-END:initComponents
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-       VerCanciones ver = new VerCanciones();
+       VerCanciones ver = new VerCanciones(this, tunes); 
        this.setVisible(false);
        ver.setVisible(true);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-      AgregarCanciones agregar = new AgregarCanciones(this,tunes);
+      AgregarCanciones agregar = new AgregarCanciones(this, tunes); 
       
         this.setVisible(false);
        agregar.setVisible(true);
+
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
@@ -148,7 +150,9 @@ private JTunes tunes;
     }//GEN-LAST:event_b2ActionPerformed
 
     private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
-        // TODO add your handling code here:
+       ranking rank = new ranking(this, tunes); 
+        this.setVisible(false);
+        rank.setVisible(true);
     }//GEN-LAST:event_rankingActionPerformed
 
     /**
