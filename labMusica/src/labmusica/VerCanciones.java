@@ -12,7 +12,7 @@ import javax.swing.JLabel;
  * @author saidn
  */
 public class VerCanciones extends javax.swing.JFrame {
-private JTunes tunes;
+private JTunes tunes=new JTunes(100);
    private Main mainFrame;
   
     public VerCanciones() {
@@ -56,7 +56,7 @@ private JTunes tunes;
             String datosTexto = "<html>"
             + "Nombre: " + cancionActual.getNombre() + "<br>" 
           + "Codigo: " + cancionActual.getCodigo() + "<br>"
-           + "Precio: L." + cancionActual.getPrecio() + "<br>"
+           + "Precio: L. " + cancionActual.getPrecio() + "<br>"
            + "Valoracion promedio: " + ranking
             + "</html>";
             

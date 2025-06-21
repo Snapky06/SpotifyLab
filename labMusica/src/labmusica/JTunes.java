@@ -11,8 +11,8 @@ public class JTunes {
     private Song[] canciones;
 
 
-    public JTunes() {
-        canciones = new Song[100];
+    public JTunes(int cantidad) {
+        canciones = new Song[cantidad];
     }
 
     public boolean addSong(String codigo, String nombre, String precio, ImageIcon imagenDisco) {

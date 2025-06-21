@@ -14,7 +14,7 @@ private JTunes tunes;
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-        tunes = new JTunes();
+        tunes = new JTunes(100);
     }
 
     
